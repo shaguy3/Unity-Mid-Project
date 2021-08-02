@@ -22,5 +22,6 @@ public class BeybladeRotate : MonoBehaviour
     {
         MouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
         transform.rotation *= Quaternion.Euler(0, MouseX, 0);
+        if(Input.GetKey(KeyCode))
     }
 }
