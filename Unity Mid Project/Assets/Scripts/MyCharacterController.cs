@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour
 {
-
-
     private bool APressed;
     private bool SPressed;
     private bool WPressed;
     private bool DPressed;
     private bool SpacePressed;
     private Rigidbody rigidBodyComponent;
+    private Rigidbody parentRigidbodyComponent;
+    private Camera cam;
+    
     // Start is called before the first frame update
-     public float speed;
-    // Mouse control
-    private float MouseX;
-    private float MouseY;
-    public float mouseSpeed;
+    [SerializeField]
+     public float movmentSensitivity = 500f;
+
+    // Current rotation
+    private Vector3 m_currentRotation;
+
     void Start()
     {
+        parentRigidbodyComponent = GetComponentInParent<Rigidbody>();
         this.rigidBodyComponent = GetComponent<Rigidbody>();
-         Cursor.lockState = CursorLockMode.Locked;
-        speed = 100;
-        mouseSpeed = 100;
+       // Cursor.lockState = CursorLockMode.Locked;
+        cam = this.gameObject.GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
     [System.Obsolete]
     void Update()
-    {
-        MouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
-        MouseY = -Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
-        transform.rotation *= Quaternion.Euler(0, MouseX, 0);
-
+    {   
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             WPressed = true;
@@ -77,19 +75,24 @@ public class MyCharacterController : MonoBehaviour
     {
         if(WPressed)
         {
-            rigidBodyComponent.AddForce(Vector3.forward,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(cam.transform.forward,ForceMode.Impulse);
+           // rigidBodyComponent.AddForce(cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
+           // rigidBodyComponent.AddForce(parentRigidbodyComponent.transform.forward, ForceMode.Impulse);
         }
         if(APressed)
         {
-        rigidBodyComponent.AddForce(Vector3.left,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(-cam.transform.right,ForceMode.Impulse);
+           // rigidBodyComponent.AddForce(-cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(SPressed)
         {
-        rigidBodyComponent.AddForce(Vector3.back,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(-cam.transform.forward,ForceMode.Impulse);
+            //rigidBodyComponent.AddForce(-cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(DPressed)
         {
-        rigidBodyComponent.AddForce(Vector3.right,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(cam.transform.right,ForceMode.Impulse);
+           // rigidBodyComponent.AddForce(cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(SpacePressed)
         {

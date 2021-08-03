@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637629684787140023
-    m_Hash: 2341616755
+      ticks: 637635265654625845
+    m_Hash: 1901230284
   m_LockFileStatus:
     m_FilePath: C:/Users/Roi/Desktop/projects/Unity/Unity-Mid-Project/Unity Mid Project/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637629684951720707
-    m_Hash: 312621542
+      ticks: 637635265654635839
+    m_Hash: 1666658725
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:

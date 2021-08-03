@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Spin : MonoBehaviour
 {
+    [SerializeField]
+    private float spinSensitivity;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        spinSensitivity = -100.0f;
     }
 
     // Update is called once per frame
@@ -18,6 +21,6 @@ public class Spin : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Rotate(0.0f, 0.0f, -100.0f, Space.Self);
+        transform.Rotate(0.0f, 0.0f, spinSensitivity, Space.Self);
     }
 }
