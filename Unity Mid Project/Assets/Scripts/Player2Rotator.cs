@@ -8,30 +8,34 @@ public class Player2Rotator : MonoBehaviour
     public float speed;
     // Mouse control
     private float rotation;
+    private GameObject player2;
     void Start()
     {
         // Cursor.lockState = CursorLockMode.Locked;
         speed = 100;
+        player2 = GameObject.FindGameObjectsWithTag("Player2")[0];
     }
 
     // Update is called once per frame
     [System.Obsolete]
     void Update()
     {
-        if(Input.GetKey(KeyCode.Greater))
+        if(Input.GetKey(KeyCode.K))
         {
             rotation = -1 * speed * Time.deltaTime;
         }
-        if(Input.GetKey(KeyCode.Question))
+        if(Input.GetKey(KeyCode.L))
         {
             rotation = speed * Time.deltaTime;
         }
 
-        if(Input.GetKeyUp(KeyCode.Greater) || Input.GetKeyUp(KeyCode.Question))
+        if(Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
         {
-            rotation = 0 * speed * Time.deltaTime;
+            rotation = 0;
+            transform.RotateAround(player2.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation);
         }
-        transform.rotation *= Quaternion.Euler(0, rotation, 0);
+        //transform.rotation *= Quaternion.Euler(0, rotation, 0);
+        transform.RotateAround(player2.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation * Time.deltaTime*30);
         
     }
 }

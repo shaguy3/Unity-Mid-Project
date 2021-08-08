@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4513554, g: 0.5009376, b: 0.5727979, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -142,109 +142,89 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 8d206fb4380c01d448733aa900fbb26c, type: 3}
---- !u!1001 &129902188
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1838150974}
-    m_Modifications:
-    - target: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_Name
-      value: BeybladeObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.000000029802322
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000022351745
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519821243081173783, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58396e5483f261a4e96bbf0244e685ce, type: 2}
-    m_RemovedComponents:
-    - {fileID: 2519821243081173781, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
---- !u!4 &129902189 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-  m_PrefabInstance: {fileID: 129902188}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &129902190 stripped
+--- !u!1 &100201072
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
-  m_PrefabInstance: {fileID: 129902188}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &129902191
-MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129902190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e68109db3374a449445bf1a6157601, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinSensitivity: 0
---- !u!64 &129902192
-MeshCollider:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100201073}
+  - component: {fileID: 100201075}
+  - component: {fileID: 100201074}
+  m_Layer: 0
+  m_Name: BeybladeCamera_Player2
+  m_TagString: cameraP2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &100201073
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129902190}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 100201072}
+  m_LocalRotation: {x: 0.13048144, y: 0.025952978, z: -0.0034167732, w: 0.99110514}
+  m_LocalPosition: {x: -0.000005364418, y: 0.00004386902, z: -0.0013427734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1150767710}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 15, y: 3, z: 0}
+--- !u!81 &100201074
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100201072}
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5607537307747258165, guid: a1f9f30ca4ba0f64db5fb9c80cdf87da, type: 3}
+--- !u!20 &100201075
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100201072}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0.5
+    y: 0
+    width: 0.5
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 40
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &501964083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
@@ -294,8 +274,8 @@ GameObject:
   - component: {fileID: 540427220}
   - component: {fileID: 540427219}
   m_Layer: 0
-  m_Name: BeybladeCamera
-  m_TagString: Untagged
+  m_Name: BeybladeCamera_Player1
+  m_TagString: cameraP1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540427217}
   m_LocalRotation: {x: 0.09874149, y: 0.72941184, z: -0.092885055, w: 0.6705079}
-  m_LocalPosition: {x: -74, y: 20.2, z: 7.1}
+  m_LocalPosition: {x: -52.6, y: 16.7, z: 2.7245855}
   m_LocalScale: {x: 1, y: 0.58063954, z: 1}
   m_Children: []
   m_Father: {fileID: 1917133891}
@@ -347,7 +327,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 26.991467
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -408,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604432187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.39267, y: -33.4, z: 12.475414}
+  m_LocalPosition: {x: -84.8, y: -33.4, z: 12.475414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1917133891}
@@ -428,15 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e488f599d368a24408da16331ee7fdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APressed: 0
-  SPressed: 0
-  WPressed: 0
-  DPressed: 0
-  rigidBodyComponent: {fileID: 0}
-  parentRigidbodyComponent: {fileID: 0}
-  cam: {fileID: 0}
-  movmentSensitivity: 50
-  m_currentRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &604432191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +451,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1150767709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150767710}
+  - component: {fileID: 1150767712}
+  m_Layer: 0
+  m_Name: BeybladeRotator_Player2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150767710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150767709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6, y: 10.5, z: -32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 100201073}
+  m_Father: {fileID: 1838150974}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150767712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150767709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ec5b19a5525624c95b861e282c5ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1360432977
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,13 +582,36 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360432977}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.2561953, y: -0.24954927, z: 0.0686473, w: 0.9313306}
   m_LocalPosition: {x: 0, y: 300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.762, y: -30, z: 0}
+--- !u!1 &1540211686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+  m_PrefabInstance: {fileID: 1845669421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1540211687 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+  m_PrefabInstance: {fileID: 1845669421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1540211694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540211686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52175b98726991e4d92e21784b61b3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSensitivity: 0
 --- !u!1001 &1624654081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -655,6 +694,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1838150974}
+  - component: {fileID: 1838150976}
+  - component: {fileID: 1838150977}
   m_Layer: 0
   m_Name: BeybladeMover_Player2
   m_TagString: Untagged
@@ -669,14 +710,113 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838150973}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -79.88588, y: -34.8418, z: -9.03537}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -53.29, y: -29.64, z: 12.475414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 129902189}
+  - {fileID: 1150767710}
+  - {fileID: 1540211687}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!54 &1838150976
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838150973}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &1838150977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838150973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2832be2fa70cbcb48ad7fd5a954964c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movmentSensitivity: 500
+--- !u!1001 &1845669421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1838150974}
+    m_Modifications:
+    - target: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_Name
+      value: BeybladeObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173781, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000022351745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173783, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58396e5483f261a4e96bbf0244e685ce, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
 --- !u!1 &1917133889
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,8 +828,9 @@ GameObject:
   - component: {fileID: 1917133891}
   - component: {fileID: 1917133890}
   - component: {fileID: 1917133892}
+  - component: {fileID: 1917133893}
   m_Layer: 0
-  m_Name: BeybladeRotator
+  m_Name: BeybladeRotator_Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,8 +848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045754f7c5e0e9d45ada1ef5d5029493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotation: 0
 --- !u!4 &1917133891
 Transform:
   m_ObjectHideFlags: 0
@@ -717,7 +856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917133889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 540427218}
@@ -725,6 +864,19 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1917133892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917133889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b927cd47fe8fe047a5de0d3214567fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!114 &1917133893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -747,6 +899,10 @@ PrefabInstance:
     - target: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
       propertyPath: m_Name
       value: BeybladeObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 2519821243081173782, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
       propertyPath: m_RootOrder
