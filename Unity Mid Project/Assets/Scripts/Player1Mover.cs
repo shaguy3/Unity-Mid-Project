@@ -76,24 +76,32 @@ public class Player1Mover : MonoBehaviour
         Vector3 movementVector = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
         if(WPressed)
         {
-            rigidBodyComponent.AddForce(movementVector,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(movementVector*movmentSensitivity,ForceMode.Impulse);
            // rigidBodyComponent.AddForce(cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
            // rigidBodyComponent.AddForce(parentRigidbodyComponent.transform.forward, ForceMode.Impulse);
         }
         if(APressed)
         {
-            rigidBodyComponent.AddForce(-cam.transform.right,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(-cam.transform.right*movmentSensitivity,ForceMode.Impulse);
            // rigidBodyComponent.AddForce(-cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(SPressed)
         {
-            rigidBodyComponent.AddForce(-movementVector,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(-movementVector*movmentSensitivity,ForceMode.Impulse);
             //rigidBodyComponent.AddForce(-cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(DPressed)
         {
-            rigidBodyComponent.AddForce(cam.transform.right,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(cam.transform.right*movmentSensitivity,ForceMode.Impulse);
            // rigidBodyComponent.AddForce(cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
     }
+
+void OnCollisionEnter (Collision targetObj) {
+    if(targetObj.gameObject.tag == "Player2")
+  {
+        Debug.Log("ddddd");
+  }
+
+}
 }
