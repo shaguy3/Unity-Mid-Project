@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player1Rotator : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed;
+    [SerializeField]
+    private float speed;
     // Mouse control
     private float rotation;
     private GameObject player1;
@@ -35,7 +36,7 @@ public class Player1Rotator : MonoBehaviour
             transform.RotateAround(player1.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation);
         }
         //transform.rotation *= Quaternion.Euler(0, rotation, 0);
-        transform.RotateAround(player1.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation * Time.deltaTime*30);
+        transform.RotateAround(player1.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation * 1.5f);
         // TODO: RotateAround?
     }
 }

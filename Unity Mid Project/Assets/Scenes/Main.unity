@@ -355,7 +355,6 @@ GameObject:
   m_Component:
   - component: {fileID: 604432189}
   - component: {fileID: 604432188}
-  - component: {fileID: 604432190}
   - component: {fileID: 604432191}
   m_Layer: 0
   m_Name: BeybladeMover_Player1
@@ -396,18 +395,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &604432190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604432187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e488f599d368a24408da16331ee7fdd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &604432191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,8 +813,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1917133891}
-  - component: {fileID: 1917133890}
-  - component: {fileID: 1917133892}
   - component: {fileID: 1917133893}
   m_Layer: 0
   m_Name: BeybladeRotator_Player1
@@ -836,18 +821,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1917133890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917133889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045754f7c5e0e9d45ada1ef5d5029493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1917133891
 Transform:
   m_ObjectHideFlags: 0
@@ -863,19 +836,6 @@ Transform:
   m_Father: {fileID: 604432189}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1917133892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917133889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b927cd47fe8fe047a5de0d3214567fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!114 &1917133893
 MonoBehaviour:
   m_ObjectHideFlags: 0
