@@ -6,12 +6,12 @@ public class Player1Spin : MonoBehaviour
 {
     [SerializeField]
     private float spinSensitivity;
-    private Rigidbody player2;
+    private float damage;
     // Start is called before the first frame update
     void Start()
     {
         spinSensitivity = -100.0f;
-        player2 = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
+        damage = 0;
     }
 
     // Update is called once per frame
@@ -22,14 +22,17 @@ public class Player1Spin : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Rotate(0.0f, 0.0f, spinSensitivity, Space.Self);
-    }
-    void OnCollisionEnter (Collision targetObj){
-        if(targetObj.gameObject.tag == "Player2")
+        if(damage < 100)
         {
-            float damage = player2.velocity.magnitude;
-            Debug.Log(damage);
+            transform.Rotate(0.0f, 0.0f, spinSensitivity+damage, Space.Self);
         }
+        else
+        {
+            transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self); //dead
+        }
+        
     }
+
+    public void setDamage(float dmg){damage += dmg;}
 }
 

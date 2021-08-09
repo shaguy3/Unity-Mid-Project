@@ -10,7 +10,9 @@ public class Player1Mover : MonoBehaviour
     private bool DPressed;
     private Rigidbody rigidBodyComponent;
     private Rigidbody parentRigidbodyComponent;
+    private Rigidbody player2RigidBody;
     private Camera cam;
+    private Player1Spin spinScript;
 
     
     // Start is called before the first frame update
@@ -26,6 +28,8 @@ public class Player1Mover : MonoBehaviour
         this.rigidBodyComponent = GetComponent<Rigidbody>();
        // Cursor.lockState = CursorLockMode.Locked;
         cam = this.gameObject.GetComponentInChildren<Camera>();
+        player2RigidBody = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
+        spinScript = FindObjectOfType<Player1Spin>();
     }
 
     // Update is called once per frame
@@ -97,11 +101,11 @@ public class Player1Mover : MonoBehaviour
         }
     }
 
-void OnCollisionEnter (Collision targetObj) {
-    if(targetObj.gameObject.tag == "Player2")
-  {
-        Debug.Log("ddddd");
-  }
+void OnCollisionEnter (Collision collision) {
+    if (collision.gameObject.tag == "Player2")
+        {
+            spinScript.setDamage(player2RigidBody.velocity.magnitude);
+        }
 
-}
+    }
 }

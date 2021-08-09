@@ -13,7 +13,7 @@ public class Player1Rotator : MonoBehaviour
     {
         // Cursor.lockState = CursorLockMode.Locked;
         speed = 100;
-        player1 = GameObject.FindGameObjectsWithTag("Player1")[0];
+        player1 = GameObject.FindGameObjectsWithTag("Player1Obj")[0];
     }
 
     // Update is called once per frame

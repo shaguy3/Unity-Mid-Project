@@ -10,7 +10,9 @@ public class Player2Mover : MonoBehaviour
     private bool DPressed;
     private Rigidbody rigidBodyComponent;
     private Rigidbody parentRigidbodyComponent;
+    private Rigidbody player1RigidBody;
     private Camera cam;
+    private Player2Spin spinScript;
 
     
     // Start is called before the first frame update
@@ -26,6 +28,8 @@ public class Player2Mover : MonoBehaviour
         this.rigidBodyComponent = GetComponent<Rigidbody>();
        // Cursor.lockState = CursorLockMode.Locked;
         cam = this.gameObject.GetComponentInChildren<Camera>();
+        player1RigidBody = GameObject.FindGameObjectsWithTag("Player1")[0].GetComponent<Rigidbody>();
+        spinScript = FindObjectOfType<Player2Spin>();
     }
 
     // Update is called once per frame
@@ -76,24 +80,32 @@ public class Player2Mover : MonoBehaviour
         Vector3 movementVector = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
         if(WPressed)
         {
-            rigidBodyComponent.AddForce(movementVector,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(movementVector*movmentSensitivity,ForceMode.Impulse);
            // rigidBodyComponent.AddForce(cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
            // rigidBodyComponent.AddForce(parentRigidbodyComponent.transform.forward, ForceMode.Impulse);
         }
         if(APressed)
         {
-            rigidBodyComponent.AddForce(-cam.transform.right,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(-cam.transform.right*movmentSensitivity,ForceMode.Impulse);
            // rigidBodyComponent.AddForce(-cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(SPressed)
         {
-            rigidBodyComponent.AddForce(-movementVector,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(-movementVector*movmentSensitivity,ForceMode.Impulse);
             //rigidBodyComponent.AddForce(-cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
         if(DPressed)
         {
-            rigidBodyComponent.AddForce(cam.transform.right,ForceMode.Impulse);
+            rigidBodyComponent.AddForce(cam.transform.right*movmentSensitivity,ForceMode.Impulse);
            // rigidBodyComponent.AddForce(cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
         }
+    }
+
+    void OnCollisionEnter (Collision collision) {
+    if (collision.gameObject.tag == "Player1")
+        {
+            spinScript.setDamage(player1RigidBody.velocity.magnitude);
+        }
+
     }
 }

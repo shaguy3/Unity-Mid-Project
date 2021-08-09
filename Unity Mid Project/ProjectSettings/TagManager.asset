@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - cameraP1
   - cameraP2
+  - Player1Obj
+  - Player2Obj
   layers:
   - Default
   - TransparentFX
