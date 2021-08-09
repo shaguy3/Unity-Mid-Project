@@ -64,5 +64,5 @@ public class Player2Rotator : MonoBehaviour
         //transform.rotation *= Quaternion.Euler(0, rotation, 0);
         transform.RotateAround(player2.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation * 1.5f);
         // TODO: RotateAround?
-    }וו
+    }
 }
