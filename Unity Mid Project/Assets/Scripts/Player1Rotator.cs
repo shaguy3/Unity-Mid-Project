@@ -10,6 +10,9 @@ public class Player1Rotator : MonoBehaviour
     // Mouse control
     private float rotation;
     private GameObject player1;
+
+    private bool m_LeftRotation = false, m_RightRotation = false;
+
     void Start()
     {
         // Cursor.lockState = CursorLockMode.Locked;
@@ -17,20 +20,43 @@ public class Player1Rotator : MonoBehaviour
         player1 = GameObject.FindGameObjectsWithTag("Player1Obj")[0];
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            m_LeftRotation = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            m_RightRotation = true;
+        }
+
+        if(Input.GetKeyUp(KeyCode.C))
+        {
+            m_LeftRotation = false;
+        }
+
+        if(Input.GetKeyUp(KeyCode.V))
+        {
+            m_RightRotation = false;
+        }
+    }
+
     // Update is called once per frame
     [System.Obsolete]
     void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.C))
+        if(m_LeftRotation)
         {
             rotation = -1 * speed * Time.deltaTime;
         }
-        if(Input.GetKey(KeyCode.V))
+        if(m_RightRotation)
         {
             rotation = speed * Time.deltaTime;
         }
 
-        if(Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.V))
+        if(!m_LeftRotation && !m_RightRotation)
         {
             rotation = 0;
             transform.RotateAround(player1.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation);
