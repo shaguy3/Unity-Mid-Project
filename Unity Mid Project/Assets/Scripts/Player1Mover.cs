@@ -13,7 +13,7 @@ public class Player1Mover : MonoBehaviour
     private Rigidbody player2RigidBody;
     private Camera cam;
     private Player1Spin spinScript;
-
+    private float health;
     
     // Start is called before the first frame update
     [SerializeField]
@@ -30,45 +30,46 @@ public class Player1Mover : MonoBehaviour
         cam = this.gameObject.GetComponentInChildren<Camera>();
         player2RigidBody = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
         spinScript = FindObjectOfType<Player1Spin>();
+        health = 100;
     }
 
     // Update is called once per frame
     [System.Obsolete]
     void Update()
     {   
-        if(Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.W) && health > 0)
         {
             WPressed = true;
         }
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.A) && health > 0)
         {
             APressed = true;
         }
-         if(Input.GetKeyDown(KeyCode.S))
+         if(Input.GetKeyDown(KeyCode.S) && health > 0)
         {
             SPressed = true;
         }
-        if(Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.D) && health > 0)
         {
             DPressed = true;
         }
 
-        if(Input.GetKeyUp(KeyCode.W))
+        if(Input.GetKeyUp(KeyCode.W) && health > 0)
         {
             rigidBodyComponent.AddForce(cam.transform.forward*0,ForceMode.Impulse);
             WPressed = false;
         }
-        if(Input.GetKeyUp(KeyCode.A))
+        if(Input.GetKeyUp(KeyCode.A) && health > 0)
         {
             rigidBodyComponent.AddForce(-cam.transform.right*0,ForceMode.Impulse);
             APressed = false;
         }
-         if(Input.GetKeyUp(KeyCode.S))
+         if(Input.GetKeyUp(KeyCode.S) && health > 0)
         {
             rigidBodyComponent.AddForce(-cam.transform.forward*0,ForceMode.Impulse);
             SPressed = false;
         }
-        if(Input.GetKeyUp(KeyCode.D))
+        if(Input.GetKeyUp(KeyCode.D) && health > 0)
         {
             rigidBodyComponent.AddForce(cam.transform.right*0,ForceMode.Impulse);
             DPressed = false;
@@ -104,7 +105,16 @@ public class Player1Mover : MonoBehaviour
 void OnCollisionEnter (Collision collision) {
     if (collision.gameObject.tag == "Player2")
         {
-            spinScript.setDamage(player2RigidBody.velocity.magnitude);
+            if(rigidBodyComponent.velocity.magnitude < player2RigidBody.velocity.magnitude)
+            {
+                spinScript.setDamage(player2RigidBody.velocity.magnitude/3);
+                this.health -= player2RigidBody.velocity.magnitude/3;
+            }
+            else
+            {
+                 spinScript.setDamage(player2RigidBody.velocity.magnitude/6);
+                this.health -= player2RigidBody.velocity.magnitude/6;
+            }
         }
 
     }

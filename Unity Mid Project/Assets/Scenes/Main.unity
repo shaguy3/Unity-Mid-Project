@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 100201073}
   - component: {fileID: 100201075}
   - component: {fileID: 100201074}
+  - component: {fileID: 100201076}
   m_Layer: 0
   m_Name: BeybladeCamera_Player2
   m_TagString: cameraP2
@@ -225,6 +226,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!65 &100201076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100201072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &501964083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2519821243081173777, guid: 7611e69a35f2c094a873533039fa6a65, type: 3}
@@ -273,6 +287,7 @@ GameObject:
   - component: {fileID: 540427218}
   - component: {fileID: 540427220}
   - component: {fileID: 540427219}
+  - component: {fileID: 540427221}
   m_Layer: 0
   m_Name: BeybladeCamera_Player1
   m_TagString: cameraP1
@@ -345,6 +360,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!65 &540427221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540427217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &604432187
 GameObject:
   m_ObjectHideFlags: 0
