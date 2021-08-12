@@ -14,7 +14,9 @@ public class Player1Mover : MonoBehaviour
     private Camera cam;
     private Player1Spin spinScript;
     private float health;
-    
+    private AudioSource scrapingSound;
+    private bool SoundEffect;
+
     // Start is called before the first frame update
     [SerializeField]
      public float movmentSensitivity = 500f;
@@ -31,12 +33,19 @@ public class Player1Mover : MonoBehaviour
         player2RigidBody = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
         spinScript = FindObjectOfType<Player1Spin>();
         health = 100;
+        scrapingSound = GetComponent<AudioSource>();
+        SoundEffect = false;
     }
 
     // Update is called once per frame
     [System.Obsolete]
     void Update()
     {   
+        if(SoundEffect)
+        {
+            scrapingSound.Play();   
+            SoundEffect = false;
+        }
         if(Input.GetKeyDown(KeyCode.W) && health > 0)
         {
             WPressed = true;
@@ -105,6 +114,7 @@ public class Player1Mover : MonoBehaviour
 void OnCollisionEnter (Collision collision) {
     if (collision.gameObject.tag == "Player2")
         {
+            SoundEffect = true;
             if(rigidBodyComponent.velocity.magnitude < player2RigidBody.velocity.magnitude)
             {
                 spinScript.setDamage(player2RigidBody.velocity.magnitude/3);
