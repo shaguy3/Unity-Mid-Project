@@ -7,6 +7,8 @@ public class Player1Spin : MonoBehaviour
     [SerializeField]
     private float spinSensitivity;
     private float damage;
+    [SerializeField]
+    private ParticleSystem Sparks;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,13 @@ public class Player1Spin : MonoBehaviour
         
     }
 
-    public void setDamage(float dmg){damage += dmg;}
+    public void setDamage(float dmg)
+    {
+        Quaternion myRotation = Quaternion.identity;
+        myRotation.eulerAngles = new Vector3(0, Random.Range(0f,180f), 0);
+        damage += dmg;
+        Instantiate(Sparks, transform.position, myRotation);
+        Sparks.Play();
+    }
 }
 

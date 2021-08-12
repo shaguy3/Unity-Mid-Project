@@ -17,6 +17,7 @@ public class Player1Mover : MonoBehaviour
     private AudioSource scrapingSound;
     private bool SoundEffect;
 
+
     // Start is called before the first frame update
     [SerializeField]
      public float movmentSensitivity = 500f;
