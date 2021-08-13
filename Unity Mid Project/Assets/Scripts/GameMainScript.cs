@@ -22,15 +22,15 @@ public class GameMainScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_healthBarPlayer1.GetHealth() <= 0.0f)
-        {
-            m_P1.Respawn();
-            m_p2.Respawn();
-        }
-        if(m_healthBarPlayer2.GetHealth() <= 0.0f)
-        {
-            m_P1.Respawn();
-            m_p2.Respawn();
-        }
+        // if(m_healthBarPlayer1.GetHealth() <= 0.0f)
+        // {
+        //     m_P1.Respawn();
+        //     m_p2.Respawn();
+        // }
+        // if(m_healthBarPlayer2.GetHealth() <= 0.0f)
+        // {
+        //     m_P1.Respawn();
+        //     m_p2.Respawn();
+        // }
     }
 }

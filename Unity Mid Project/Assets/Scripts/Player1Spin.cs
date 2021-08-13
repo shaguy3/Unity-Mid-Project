@@ -8,7 +8,7 @@ public class Player1Spin : MonoBehaviour
     private float m_spinSensitivity;
 
     private float m_Damage;
-    
+    private Player1Mover p1;
     [SerializeField]
     private ParticleSystem m_sparks;
     
@@ -17,6 +17,7 @@ public class Player1Spin : MonoBehaviour
     {
         m_spinSensitivity = -100.0f;
         m_Damage = 0;
+        p1 = FindObjectOfType<Player1Mover>();
     }
 
     // Update is called once per frame
@@ -34,6 +35,7 @@ public class Player1Spin : MonoBehaviour
         {
             gameObject.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self); //dead
+            p1.Respawn();
         }
         
     }
