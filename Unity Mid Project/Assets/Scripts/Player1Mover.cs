@@ -16,11 +16,12 @@ public class Player1Mover : MonoBehaviour
     private float health;
     private AudioSource scrapingSound;
     private bool SoundEffect;
+    public P1Healthbar m_healthBar;
 
 
     // Start is called before the first frame update
     [SerializeField]
-     public float movmentSensitivity = 500f;
+    public float movmentSensitivity = 500f;
 
     // Current rotation
     private Vector3 m_currentRotation;
@@ -33,7 +34,7 @@ public class Player1Mover : MonoBehaviour
         cam = this.gameObject.GetComponentInChildren<Camera>();
         player2RigidBody = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
         spinScript = FindObjectOfType<Player1Spin>();
-        health = 100;
+        m_healthBar.SetMaxHealth(100);
         scrapingSound = GetComponent<AudioSource>();
         SoundEffect = false;
     }
@@ -47,42 +48,49 @@ public class Player1Mover : MonoBehaviour
             scrapingSound.Play();   
             SoundEffect = false;
         }
-        if(Input.GetKeyDown(KeyCode.W) && health > 0)
+        if(Input.GetKeyDown(KeyCode.W) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             WPressed = true;
         }
-        if(Input.GetKeyDown(KeyCode.A) && health > 0)
+        if(Input.GetKeyDown(KeyCode.A) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             APressed = true;
         }
-         if(Input.GetKeyDown(KeyCode.S) && health > 0)
+         if(Input.GetKeyDown(KeyCode.S) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             SPressed = true;
         }
-        if(Input.GetKeyDown(KeyCode.D) && health > 0)
+        if(Input.GetKeyDown(KeyCode.D) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             DPressed = true;
         }
 
-        if(Input.GetKeyUp(KeyCode.W) && health > 0)
+        if(Input.GetKeyUp(KeyCode.W) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             rigidBodyComponent.AddForce(cam.transform.forward*0,ForceMode.Impulse);
             WPressed = false;
         }
-        if(Input.GetKeyUp(KeyCode.A) && health > 0)
+        if(Input.GetKeyUp(KeyCode.A) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             rigidBodyComponent.AddForce(-cam.transform.right*0,ForceMode.Impulse);
             APressed = false;
         }
-         if(Input.GetKeyUp(KeyCode.S) && health > 0)
+         if(Input.GetKeyUp(KeyCode.S) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             rigidBodyComponent.AddForce(-cam.transform.forward*0,ForceMode.Impulse);
             SPressed = false;
         }
-        if(Input.GetKeyUp(KeyCode.D) && health > 0)
+        if(Input.GetKeyUp(KeyCode.D) && m_healthBar.m_HealthBarSlider.value > 0)
         {
             rigidBodyComponent.AddForce(cam.transform.right*0,ForceMode.Impulse);
             DPressed = false;
+        }
+
+        // Falling from the arena
+        if (transform.position.y < -60)
+        {
+            spinScript.Fall();
+            m_healthBar.SetHealth(0);
         }
     }
 
@@ -119,12 +127,14 @@ void OnCollisionEnter (Collision collision) {
             if(rigidBodyComponent.velocity.magnitude < player2RigidBody.velocity.magnitude)
             {
                 spinScript.setDamage(player2RigidBody.velocity.magnitude/3);
-                this.health -= player2RigidBody.velocity.magnitude/3;
+                m_healthBar.SetHealth((int)m_healthBar.m_HealthBarSlider.value - 
+                                    (int)player2RigidBody.velocity.magnitude/3);
             }
             else
             {
                  spinScript.setDamage(player2RigidBody.velocity.magnitude/6);
-                this.health -= player2RigidBody.velocity.magnitude/6;
+                m_healthBar.SetHealth((int)m_healthBar.m_HealthBarSlider.value - 
+                                    (int)player2RigidBody.velocity.magnitude/6);
             }
         }
 

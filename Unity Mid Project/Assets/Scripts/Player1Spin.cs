@@ -5,28 +5,30 @@ using UnityEngine;
 public class Player1Spin : MonoBehaviour
 {
     [SerializeField]
-    private float spinSensitivity;
-    private float damage;
+    private float m_spinSensitivity;
+
+    private float m_Damage;
+    
     [SerializeField]
-    private ParticleSystem Sparks;
+    private ParticleSystem m_sparks;
+    
     // Start is called before the first frame update
     void Start()
     {
-        spinSensitivity = -100.0f;
-        damage = 0;
+        m_spinSensitivity = -100.0f;
+        m_Damage = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void FixedUpdate()
     {
-        if(damage < 100)
+        if(m_Damage < 100.0f)
         {
-            transform.Rotate(0.0f, 0.0f, spinSensitivity+damage, Space.Self);
+            transform.Rotate(0.0f, 0.0f, m_spinSensitivity+m_Damage, Space.Self);
         }
         else
         {
@@ -36,13 +38,19 @@ public class Player1Spin : MonoBehaviour
         
     }
 
-    public void setDamage(float dmg)
+    public void setDamage(float i_damage)
     {
         Quaternion myRotation = Quaternion.identity;
         myRotation.eulerAngles = new Vector3(0, Random.Range(0f,180f), 0);
-        damage += dmg;
-        Instantiate(Sparks, transform.position, myRotation);
-        Sparks.Play();
+        m_Damage += i_damage;
+        Instantiate(m_sparks, transform.position, myRotation);
+        m_sparks.Play();
+    }
+
+    public void Fall()
+    {
+        m_Damage = 100;
+        transform.Rotate(0.0f, 0.2f, 0.2f, Space.Self);
     }
 }
 
