@@ -14,6 +14,9 @@ public class Player2Mover : MonoBehaviour
     private Camera cam;
     private Player2Spin spinScript;
     public P2Healthbar m_healthBar;
+    private Vector3 m_respawnPlayerPosition;
+    private Vector3 m_respawnRotatorPosition;
+    private Transform Rotator;
     
     // Start is called before the first frame update
     [SerializeField]
@@ -24,6 +27,7 @@ public class Player2Mover : MonoBehaviour
 
     void Start()
     {
+        Rotator = GameObject.FindGameObjectsWithTag("Player2Rotator")[0].transform;
         parentRigidbodyComponent = GetComponentInParent<Rigidbody>();
         this.rigidBodyComponent = GetComponent<Rigidbody>();
        // Cursor.lockState = CursorLockMode.Locked;
@@ -31,6 +35,8 @@ public class Player2Mover : MonoBehaviour
         player1RigidBody = GameObject.FindGameObjectsWithTag("Player1")[0].GetComponent<Rigidbody>();
         spinScript = FindObjectOfType<Player2Spin>();
         m_healthBar.SetMaxHealth(100);
+        m_respawnPlayerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        m_respawnRotatorPosition = new Vector3(Rotator.position.x, Rotator.position.y, Rotator.position.z);
     }
 
     // Update is called once per frame
@@ -127,4 +133,17 @@ public class Player2Mover : MonoBehaviour
         }
 
     }
+
+public void Respawn()
+{
+    Quaternion FixCameraRotation = Quaternion.identity;
+    FixCameraRotation.eulerAngles = new Vector3(0, -90, 0);
+    this.transform.position = new Vector3(m_respawnPlayerPosition.x, m_respawnPlayerPosition.y, m_respawnPlayerPosition.z);
+    m_healthBar.SetHealth(100);
+    rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
+    Rotator.transform.position = new Vector3(m_respawnRotatorPosition.x, m_respawnRotatorPosition.y, m_respawnRotatorPosition.z);   
+    Rotator.transform.rotation = FixCameraRotation;
+    rigidBodyComponent.velocity = Vector3.zero;
+    spinScript.Reset();
+}
 }

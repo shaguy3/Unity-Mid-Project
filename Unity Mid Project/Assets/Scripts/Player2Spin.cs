@@ -43,5 +43,11 @@ public class Player2Spin : MonoBehaviour
         m_Damage = 100;
         transform.Rotate(0.0f, 0.2f, 0.2f, Space.Self);
     }
+
+    public void Reset()
+    {
+        m_SpinSensitivity = -100.0f;
+        m_Damage = 0;
+    }
 }
 

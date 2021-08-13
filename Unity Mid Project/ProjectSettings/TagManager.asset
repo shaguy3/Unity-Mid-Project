@@ -10,6 +10,8 @@ TagManager:
   - cameraP2
   - Player1Obj
   - Player2Obj
+  - Player1Rotator
+  - Player2Rotator
   layers:
   - Default
   - TransparentFX

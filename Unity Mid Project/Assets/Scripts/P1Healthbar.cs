@@ -19,4 +19,9 @@ public class P1Healthbar : MonoBehaviour
     {
         m_HealthBarSlider.value = i_Health;
     }
+
+    public float GetHealth()
+    {
+        return m_HealthBarSlider.value;
+    }
 }

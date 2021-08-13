@@ -17,6 +17,9 @@ public class Player1Mover : MonoBehaviour
     private AudioSource scrapingSound;
     private bool SoundEffect;
     public P1Healthbar m_healthBar;
+    private Vector3 m_respawnPlayerPosition;
+    private Vector3 m_respawnRotatorPosition;
+    private Transform Rotator;
 
 
     // Start is called before the first frame update
@@ -28,6 +31,7 @@ public class Player1Mover : MonoBehaviour
 
     void Start()
     {
+        Rotator = GameObject.FindGameObjectsWithTag("Player1Rotator")[0].transform;
         parentRigidbodyComponent = GetComponentInParent<Rigidbody>();
         this.rigidBodyComponent = GetComponent<Rigidbody>();
        // Cursor.lockState = CursorLockMode.Locked;
@@ -37,6 +41,8 @@ public class Player1Mover : MonoBehaviour
         m_healthBar.SetMaxHealth(100);
         scrapingSound = GetComponent<AudioSource>();
         SoundEffect = false;
+        m_respawnPlayerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        m_respawnRotatorPosition = new Vector3(Rotator.position.x, Rotator.position.y, Rotator.position.z);
     }
 
     // Update is called once per frame
@@ -139,4 +145,17 @@ void OnCollisionEnter (Collision collision) {
         }
 
     }
+
+public void Respawn()
+{
+    this.transform.position = new Vector3(m_respawnPlayerPosition.x, m_respawnPlayerPosition.y, m_respawnPlayerPosition.z);
+    m_healthBar.SetHealth(100);
+    rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
+    Rotator.transform.position = new Vector3(m_respawnRotatorPosition.x, m_respawnRotatorPosition.y, m_respawnRotatorPosition.z);   
+    Rotator.transform.rotation = Quaternion.identity;
+    rigidBodyComponent.velocity = Vector3.zero;
+    spinScript.Reset();
 }
+
+}
+
