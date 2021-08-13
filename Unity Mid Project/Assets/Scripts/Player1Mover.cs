@@ -149,6 +149,7 @@ void OnCollisionEnter (Collision collision) {
 public void Respawn()
 {
     this.transform.position = new Vector3(m_respawnPlayerPosition.x, m_respawnPlayerPosition.y, m_respawnPlayerPosition.z);
+    GameObject.FindGameObjectsWithTag("Player1Obj")[0].transform.eulerAngles = new Vector3(-90,0,0);
     m_healthBar.SetHealth(100);
     rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
     Rotator.transform.position = new Vector3(m_respawnRotatorPosition.x, m_respawnRotatorPosition.y, m_respawnRotatorPosition.z);   

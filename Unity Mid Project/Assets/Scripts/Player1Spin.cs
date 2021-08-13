@@ -35,7 +35,7 @@ public class Player1Spin : MonoBehaviour
         {
             gameObject.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self); //dead
-            p1.Respawn();
+            p1.Invoke("Respawn", 3.0f);
         }
         
     }

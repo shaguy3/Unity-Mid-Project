@@ -138,6 +138,7 @@ public void Respawn()
 {
     Quaternion FixCameraRotation = Quaternion.identity;
     FixCameraRotation.eulerAngles = new Vector3(0, -90, 0);
+    GameObject.FindGameObjectsWithTag("Player2Obj")[0].transform.eulerAngles = new Vector3(-90,0,0);
     this.transform.position = new Vector3(m_respawnPlayerPosition.x, m_respawnPlayerPosition.y, m_respawnPlayerPosition.z);
     m_healthBar.SetHealth(100);
     rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
