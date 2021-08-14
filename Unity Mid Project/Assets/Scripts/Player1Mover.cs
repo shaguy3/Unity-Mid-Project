@@ -138,7 +138,7 @@ void OnCollisionEnter (Collision collision) {
             }
             else
             {
-                 spinScript.setDamage(player2RigidBody.velocity.magnitude/6);
+                spinScript.setDamage(player2RigidBody.velocity.magnitude/6);
                 m_healthBar.SetHealth((int)m_healthBar.m_HealthBarSlider.value - 
                                     (int)player2RigidBody.velocity.magnitude/6);
             }
@@ -152,7 +152,9 @@ public void Respawn()
     GameObject.FindGameObjectsWithTag("Player1Obj")[0].transform.eulerAngles = new Vector3(-90,0,0);
     m_healthBar.SetHealth(100);
     rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
-    Rotator.transform.position = new Vector3(m_respawnRotatorPosition.x, m_respawnRotatorPosition.y, m_respawnRotatorPosition.z);   
+   // Rotator.transform.position = new Vector3(m_respawnRotatorPosition.x, m_respawnRotatorPosition.y, m_respawnRotatorPosition.z);
+    Rotator.transform.position = new Vector3(-90.3f, -33.4f, 9.77541f);  
+    GameObject.FindGameObjectsWithTag("Player1Obj")[0].transform.position = new Vector3(-109.5f, -29.5f, 12.4754f);
     Rotator.transform.rotation = Quaternion.identity;
     rigidBodyComponent.velocity = Vector3.zero;
     spinScript.Reset();
