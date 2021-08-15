@@ -33,12 +33,18 @@ public class GameMainScript : MonoBehaviour
     {
         if (m_Player1Score == 3)
         {
-            GameObject.FindGameObjectsWithTag("PlayerOneWon")[0].GetComponent<Text>().enabled = true;
+            if (!GameObject.FindGameObjectsWithTag("PlayerTwoWon")[0].GetComponent<Text>().enabled)
+            {
+                GameObject.FindGameObjectsWithTag("PlayerOneWon")[0].GetComponent<Text>().enabled = true;
+            }
             this.Invoke("LoadMainMenu", 3.0f);
         }
         if (m_Player2Score == 3)
         {
-            GameObject.FindGameObjectsWithTag("PlayerTwoWon")[0].GetComponent<Text>().enabled = true;
+            if (!GameObject.FindGameObjectsWithTag("PlayerOneWon")[0].GetComponent<Text>().enabled)
+            {
+                GameObject.FindGameObjectsWithTag("PlayerTwoWon")[0].GetComponent<Text>().enabled = true;
+            }
             this.Invoke("LoadMainMenu", 3.0f);
         }
     }
@@ -63,5 +69,10 @@ public class GameMainScript : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
