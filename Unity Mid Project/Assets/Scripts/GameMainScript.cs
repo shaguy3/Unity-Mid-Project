@@ -12,25 +12,32 @@ public class GameMainScript : MonoBehaviour
     private Player1Mover m_P1;
     private Player2Mover m_p2;
 
-    // Start is called before the first frame update
+    private GameObject[] m_playerOneScores;
+    private GameObject[] m_playerTwoScores;
+
     void Start()
     {
         m_Player1Score = 0;
         m_Player2Score = 0;
+
+        m_playerOneScores = GameObject.FindGameObjectsWithTag("PlayerOneScores");
+        m_playerTwoScores = GameObject.FindGameObjectsWithTag("PlayerTwoScores");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // if(m_healthBarPlayer1.GetHealth() <= 0.0f)
-        // {
-        //     m_P1.Respawn();
-        //     m_p2.Respawn();
-        // }
-        // if(m_healthBarPlayer2.GetHealth() <= 0.0f)
-        // {
-        //     m_P1.Respawn();
-        //     m_p2.Respawn();
-        // }
+        
+    }
+
+    public void PlayerOneAddScore()
+    {
+        m_playerOneScores[m_Player1Score].GetComponent<Image>().enabled = true;
+        m_Player1Score++;
+    }
+
+    public void PlayerTwoAddScore()
+    {
+        m_playerTwoScores[m_Player2Score].GetComponent<Image>().enabled = true;
+        m_Player2Score++;
     }
 }

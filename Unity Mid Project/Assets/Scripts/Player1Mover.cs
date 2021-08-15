@@ -4,143 +4,133 @@ using UnityEngine;
 
 public class Player1Mover : MonoBehaviour
 {
-    private bool APressed;
-    private bool SPressed;
-    private bool WPressed;
-    private bool DPressed;
-    private Rigidbody rigidBodyComponent;
-    private Rigidbody parentRigidbodyComponent;
-    private Rigidbody player2RigidBody;
-    private Camera cam;
-    private Player1Spin spinScript;
-    private float health;
-    private AudioSource scrapingSound;
-    private bool SoundEffect;
+    private bool m_APressed;
+    private bool m_SPressed;
+    private bool m_WPressed;
+    private bool m_DPressed;
+    private Rigidbody m_rigidBodyComponent;
+    private Rigidbody m_parentRigidbodyComponent;
+    private Rigidbody m_player2RigidBody;
+    private Camera m_cam;
+    private Player1Spin m_spinScript;
+    private AudioSource m_scrapingSound;
+    private bool m_SoundEffect;
     public P1Healthbar m_healthBar;
     private Vector3 m_respawnPlayerPosition;
     private Vector3 m_respawnRotatorPosition;
-    private Transform Rotator;
+    private Transform m_Rotator;
+    public GameMainScript m_mainScript;
 
-
-    // Start is called before the first frame update
     [SerializeField]
     public float movmentSensitivity = 500f;
 
-    // Current rotation
     private Vector3 m_currentRotation;
 
     void Start()
     {
-        Rotator = GameObject.FindGameObjectsWithTag("Player1Rotator")[0].transform;
-        parentRigidbodyComponent = GetComponentInParent<Rigidbody>();
-        this.rigidBodyComponent = GetComponent<Rigidbody>();
-       // Cursor.lockState = CursorLockMode.Locked;
-        cam = this.gameObject.GetComponentInChildren<Camera>();
-        player2RigidBody = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
-        spinScript = FindObjectOfType<Player1Spin>();
+        m_Rotator = GameObject.FindGameObjectsWithTag("Player1Rotator")[0].transform;
+        m_parentRigidbodyComponent = GetComponentInParent<Rigidbody>();
+        this.m_rigidBodyComponent = GetComponent<Rigidbody>();
+        m_cam = this.gameObject.GetComponentInChildren<Camera>();
+        m_player2RigidBody = GameObject.FindGameObjectsWithTag("Player2")[0].GetComponent<Rigidbody>();
+        m_spinScript = FindObjectOfType<Player1Spin>();
         m_healthBar.SetMaxHealth(100);
-        scrapingSound = GetComponent<AudioSource>();
-        SoundEffect = false;
+        m_scrapingSound = GetComponent<AudioSource>();
+        m_SoundEffect = false;
         m_respawnPlayerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        m_respawnRotatorPosition = new Vector3(Rotator.position.x, Rotator.position.y, Rotator.position.z);
+        m_respawnRotatorPosition = new Vector3(m_Rotator.position.x, m_Rotator.position.y, m_Rotator.position.z);
     }
 
-    // Update is called once per frame
     [System.Obsolete]
     void Update()
     {   
-        if(SoundEffect)
+        if(m_SoundEffect)
         {
-            scrapingSound.Play();   
-            SoundEffect = false;
+            m_scrapingSound.Play();   
+            m_SoundEffect = false;
         }
         if(Input.GetKeyDown(KeyCode.W) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            WPressed = true;
+            m_WPressed = true;
         }
         if(Input.GetKeyDown(KeyCode.A) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            APressed = true;
+            m_APressed = true;
         }
          if(Input.GetKeyDown(KeyCode.S) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            SPressed = true;
+            m_SPressed = true;
         }
         if(Input.GetKeyDown(KeyCode.D) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            DPressed = true;
+            m_DPressed = true;
         }
 
         if(Input.GetKeyUp(KeyCode.W) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            rigidBodyComponent.AddForce(cam.transform.forward*0,ForceMode.Impulse);
-            WPressed = false;
+            m_rigidBodyComponent.AddForce(m_cam.transform.forward*0,ForceMode.Impulse);
+            m_WPressed = false;
         }
         if(Input.GetKeyUp(KeyCode.A) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            rigidBodyComponent.AddForce(-cam.transform.right*0,ForceMode.Impulse);
-            APressed = false;
+            m_rigidBodyComponent.AddForce(-m_cam.transform.right*0,ForceMode.Impulse);
+            m_APressed = false;
         }
          if(Input.GetKeyUp(KeyCode.S) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            rigidBodyComponent.AddForce(-cam.transform.forward*0,ForceMode.Impulse);
-            SPressed = false;
+            m_rigidBodyComponent.AddForce(-m_cam.transform.forward*0,ForceMode.Impulse);
+            m_SPressed = false;
         }
         if(Input.GetKeyUp(KeyCode.D) && m_healthBar.m_HealthBarSlider.value > 0)
         {
-            rigidBodyComponent.AddForce(cam.transform.right*0,ForceMode.Impulse);
-            DPressed = false;
+            m_rigidBodyComponent.AddForce(m_cam.transform.right*0,ForceMode.Impulse);
+            m_DPressed = false;
         }
 
         // Falling from the arena
         if (transform.position.y < -60)
         {
-            spinScript.Fall();
+            m_spinScript.Fall();
             m_healthBar.SetHealth(0);
         }
     }
 
     private void FixedUpdate()
     {
-        Vector3 movementVector = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
-        if(WPressed)
+        Vector3 movementVector = new Vector3(m_cam.transform.forward.x, 0, m_cam.transform.forward.z);
+        if(m_WPressed)
         {
-            rigidBodyComponent.AddForce(movementVector*movmentSensitivity,ForceMode.Impulse);
-           // rigidBodyComponent.AddForce(cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
-           // rigidBodyComponent.AddForce(parentRigidbodyComponent.transform.forward, ForceMode.Impulse);
+            m_rigidBodyComponent.AddForce(movementVector*movmentSensitivity,ForceMode.Impulse);
         }
-        if(APressed)
+        if(m_APressed)
         {
-            rigidBodyComponent.AddForce(-cam.transform.right*movmentSensitivity,ForceMode.Impulse);
-           // rigidBodyComponent.AddForce(-cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
+            m_rigidBodyComponent.AddForce(-m_cam.transform.right*movmentSensitivity,ForceMode.Impulse);
         }
-        if(SPressed)
+        if(m_SPressed)
         {
-            rigidBodyComponent.AddForce(-movementVector*movmentSensitivity,ForceMode.Impulse);
-            //rigidBodyComponent.AddForce(-cam.transform.forward*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
+            m_rigidBodyComponent.AddForce(-movementVector*movmentSensitivity,ForceMode.Impulse);
         }
-        if(DPressed)
+        if(m_DPressed)
         {
-            rigidBodyComponent.AddForce(cam.transform.right*movmentSensitivity,ForceMode.Impulse);
-           // rigidBodyComponent.AddForce(cam.transform.right*Time.deltaTime*movmentSensitivity,ForceMode.VelocityChange);
+            m_rigidBodyComponent.AddForce(m_cam.transform.right*movmentSensitivity,ForceMode.Impulse);
         }
     }
 
 void OnCollisionEnter (Collision collision) {
     if (collision.gameObject.tag == "Player2")
         {
-            SoundEffect = true;
-            if(rigidBodyComponent.velocity.magnitude < player2RigidBody.velocity.magnitude)
+            m_SoundEffect = true;
+            if(m_rigidBodyComponent.velocity.magnitude < m_player2RigidBody.velocity.magnitude)
             {
-                spinScript.setDamage(player2RigidBody.velocity.magnitude/3);
+                m_spinScript.setDamage(m_player2RigidBody.velocity.magnitude/3);
                 m_healthBar.SetHealth((int)m_healthBar.m_HealthBarSlider.value - 
-                                    (int)player2RigidBody.velocity.magnitude/3);
+                                    (int)m_player2RigidBody.velocity.magnitude/3);
             }
             else
             {
-                spinScript.setDamage(player2RigidBody.velocity.magnitude/6);
+                m_spinScript.setDamage(m_player2RigidBody.velocity.magnitude/6);
                 m_healthBar.SetHealth((int)m_healthBar.m_HealthBarSlider.value - 
-                                    (int)player2RigidBody.velocity.magnitude/6);
+                                    (int)m_player2RigidBody.velocity.magnitude/6);
             }
         }
 
@@ -151,13 +141,13 @@ public void Respawn()
     this.transform.position = new Vector3(m_respawnPlayerPosition.x, m_respawnPlayerPosition.y, m_respawnPlayerPosition.z);
     GameObject.FindGameObjectsWithTag("Player1Obj")[0].transform.eulerAngles = new Vector3(-90,0,0);
     m_healthBar.SetHealth(100);
-    rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
-   // Rotator.transform.position = new Vector3(m_respawnRotatorPosition.x, m_respawnRotatorPosition.y, m_respawnRotatorPosition.z);
-    Rotator.transform.position = new Vector3(-90.3f, -33.4f, 9.77541f);  
+    m_rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
+    m_Rotator.transform.position = new Vector3(-90.3f, -33.4f, 9.77541f);
     GameObject.FindGameObjectsWithTag("Player1Obj")[0].transform.position = new Vector3(-109.5f, -29.5f, 12.4754f);
-    Rotator.transform.rotation = Quaternion.identity;
-    rigidBodyComponent.velocity = Vector3.zero;
-    spinScript.Reset();
+    m_Rotator.transform.rotation = Quaternion.identity;
+    m_rigidBodyComponent.velocity = Vector3.zero;
+    m_spinScript.Reset();
+    m_mainScript.PlayerTwoAddScore();
 }
 
 }

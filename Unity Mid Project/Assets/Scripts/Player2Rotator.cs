@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Player2Rotator : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
-    private float speed;
-    // Mouse control
-    private float rotation;
-    private GameObject player2;
+    private float m_RotationSpeed;
+    private float m_Rotation;
+    private GameObject m_PlayerTwo;
 
     private bool m_LeftRotation = false, m_RightRotation = false;
 
     void Start()
     {
-        // Cursor.lockState = CursorLockMode.Locked;
-        speed = 100;
-        player2 = GameObject.FindGameObjectsWithTag("Player2Obj")[0];
+        m_RotationSpeed = 100;
+        m_PlayerTwo = GameObject.FindGameObjectsWithTag("Player2Obj")[0];
     }
 
     void Update()
@@ -43,26 +40,23 @@ public class Player2Rotator : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     [System.Obsolete]
     void FixedUpdate()
     {
         if(m_LeftRotation)
         {
-            rotation = -1 * speed * Time.deltaTime;
+            m_Rotation = -1 * m_RotationSpeed * Time.deltaTime;
         }
         if(m_RightRotation)
         {
-            rotation = speed * Time.deltaTime;
+            m_Rotation = m_RotationSpeed * Time.deltaTime;
         }
 
         if(!m_LeftRotation && !m_RightRotation)
         {
-            rotation = 0;
-            transform.RotateAround(player2.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation);
+            m_Rotation = 0;
+            transform.RotateAround(m_PlayerTwo.transform.position, new Vector3(0.0f,1.0f,0.0f), m_Rotation);
         }
-        //transform.rotation *= Quaternion.Euler(0, rotation, 0);
-        transform.RotateAround(player2.transform.position, new Vector3(0.0f,1.0f,0.0f), rotation * 1.5f);
-        // TODO: RotateAround?
+        transform.RotateAround(m_PlayerTwo.transform.position, new Vector3(0.0f,1.0f,0.0f), m_Rotation * 1.5f);
     }
 }

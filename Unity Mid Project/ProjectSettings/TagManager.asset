@@ -12,6 +12,8 @@ TagManager:
   - Player2Obj
   - Player1Rotator
   - Player2Rotator
+  - PlayerOneScores
+  - PlayerTwoScores
   layers:
   - Default
   - TransparentFX

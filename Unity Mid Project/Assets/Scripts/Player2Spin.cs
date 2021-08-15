@@ -7,16 +7,17 @@ public class Player2Spin : MonoBehaviour
     [SerializeField]
     private float m_SpinSensitivity;
     private float m_Damage;
-    private Player2Mover p2;
-    // Start is called before the first frame update
+    private Player2Mover m_PlayerTwo;
+    public P2Healthbar m_healthBar;
+    private bool m_isRespawn;
+
     void Start()
     {
         m_SpinSensitivity = -100.0f;
         m_Damage = 0;
-         p2 = FindObjectOfType<Player2Mover>();
+        m_PlayerTwo = FindObjectOfType<Player2Mover>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -26,13 +27,19 @@ public class Player2Spin : MonoBehaviour
     {
         if(m_Damage < 100)
         {
-            transform.Rotate(0.0f, 0.0f, m_SpinSensitivity+m_Damage, Space.Self);
+            transform.Rotate(0.0f, 0.0f, m_SpinSensitivity + m_Damage, Space.Self);
+            m_isRespawn = false;
         }
         else
         {
             gameObject.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self); //dead
-            p2.Invoke("Respawn", 3.0f);
+            m_healthBar.SetHealth(0);
+            if (!m_isRespawn)
+            {
+                m_PlayerTwo.Invoke("Respawn", 3.0f);
+                m_isRespawn = true;
+            }
         }
     }
 
