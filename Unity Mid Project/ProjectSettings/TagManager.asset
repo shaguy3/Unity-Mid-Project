@@ -14,6 +14,9 @@ TagManager:
   - Player2Rotator
   - PlayerOneScores
   - PlayerTwoScores
+  - PlayerOneWon
+  - PlayerTwoWon
+  - TheSun
   layers:
   - Default
   - TransparentFX

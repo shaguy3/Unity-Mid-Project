@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameMainScript : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class GameMainScript : MonoBehaviour
 
     void Start()
     {
+        // GameObject directionalLight = GameObject.FindGameObjectsWithTag("TheSun")[0];
+        // Vector3 lookingDown = new Vector3(85.3f, 91.7f, 184.5f);
+        // directionalLight.transform.rotation = Quaternion.Euler(lookingDown);
+
         m_Player1Score = 0;
         m_Player2Score = 0;
 
@@ -26,7 +31,16 @@ public class GameMainScript : MonoBehaviour
 
     void Update()
     {
-        
+        if (m_Player1Score == 3)
+        {
+            GameObject.FindGameObjectsWithTag("PlayerOneWon")[0].GetComponent<Text>().enabled = true;
+            this.Invoke("LoadMainMenu", 3.0f);
+        }
+        if (m_Player2Score == 3)
+        {
+            GameObject.FindGameObjectsWithTag("PlayerTwoWon")[0].GetComponent<Text>().enabled = true;
+            this.Invoke("LoadMainMenu", 3.0f);
+        }
     }
 
     public void PlayerOneAddScore()
@@ -39,5 +53,15 @@ public class GameMainScript : MonoBehaviour
     {
         m_playerTwoScores[m_Player2Score].GetComponent<Image>().enabled = true;
         m_Player2Score++;
+    }
+
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
